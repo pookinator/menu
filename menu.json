@@ -1,26 +1,56 @@
-[
-    {
-      "id": "chickpea-masala",
-      "name": "Chickpea Masala",
-      "category": "Indian",
-      "image": "https://example.com/masala.jpg",
-      "description": "Chickpeas in a spiced tomato sauce.",
-      "prepTime": "2 hours",
-      "tags": ["vegan", "meal prep"],
-      "active": true
-    },
-    {
-        "id": "home-made-pizza",
-        "name": "Home Made Pizza",
-        "category": "Italian",
-        "image": "https://example.com/masala.jpg",
-        "description": "Classic thin-crust pizza with your choice of toppings.",
-        "prepTime": "2-3 days",
-        "tags": ["classic"],
-        "active": true,
-        "customizations": [
-            {"name": "toppings", "type": "multi", "options":["pepperoni", "olives"]},
-            {"name": "cheese", "type": "single", "options":["mozzarella", "cheddar"]}
-        ]
-      }
-  ]
+{
+    "templates": [
+        {
+            "template": "Smoker",
+            "category": "American",
+            "prepTime": "1 days",
+            "tags": ["Classic", "Grill"],
+            "customizations": [
+                {"name": "Smoke", "type": "single", "options": ["Hickory", "Apple", "Mesquite"]},
+                {"name": "Sauce", "type": "multi", "options": ["BBQ", "Mango Habanero"]}
+            ]
+        }
+    ],
+    "items": [
+        {
+            "id": "chickpea-masala",
+            "name": "Chickpea Masala",
+            "category": "Indian",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Chana_masala.jpg/330px-Chana_masala.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+            "description": "Chickpeas in a spiced tomato sauce.",
+            "prepTime": "2 hours",
+            "tags": ["Vegan", "Meal Prep"],
+            "active": true
+        },
+        {
+            "id": "home-made-pizza",
+            "name": "Home Made Pizza",
+            "category": "Italian",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/330px-Pizza-3007395.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
+            "description": "Classic thin-crust pizza with your choice of toppings.",
+            "prepTime": "2-3 days",
+            "tags": ["Classic"],
+            "active": true,
+            "customizations": [
+                {"name": "Toppings", "type": "multi", "options":["Pepperoni", "Olives"]},
+                {"name": "Cheese", "type": "single", "options":["Mozzarella", "Cheddar"]}
+            ]
+        },
+        {
+            "template": "Smoker",
+            "id": "pork-back-ribs",
+            "name": "Pork Back Ribs",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Balinese_Roasted_Pork_Ribs_-_Iga_Babi_Panggang_Bali.JPG/330px-Balinese_Roasted_Pork_Ribs_-_Iga_Babi_Panggang_Bali.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+            "description": "Smoked Pork Back Ribs",
+            "active": true
+        },
+        {
+            "template": "Smoker",
+            "id": "pork-shoulder",
+            "name": "Pork Shoulder",
+            "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Pork_Shoulders.jpg/330px-Pork_Shoulders.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
+            "description": "Smoked Pork Shoulder",
+            "active": true
+        }
+    ]
+}

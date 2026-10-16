@@ -1,0 +1,1 @@
+Deploys to GitHub Pages: https://pookinator.github.io/menu/
