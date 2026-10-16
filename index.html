@@ -266,25 +266,11 @@
           .replaceAll('"', "&quot;");
       }
 
-      function templatesFrom(menu) {
-        return menu.templates || menu["templates:"] || [];
-      }
-
       function itemsFrom(menu) {
         if (Array.isArray(menu)) {
           return menu;
         }
         return menu.items || [];
-      }
-
-      function resolveItem(item, templatesByName) {
-        const template = item.template
-          ? templatesByName.get(item.template)
-          : null;
-        if (!template) {
-          return item;
-        }
-        return { ...template, ...item };
       }
 
       function renderCustomizations(customizations) {
@@ -367,12 +353,7 @@
           return response.json();
         })
         .then((menu) => {
-          const templatesByName = new Map(
-            templatesFrom(menu).map((template) => [template.template, template])
-          );
-          const active = itemsFrom(menu)
-            .map((item) => resolveItem(item, templatesByName))
-            .filter((item) => item.active);
+          const active = itemsFrom(menu).filter((item) => item.active);
           if (active.length === 0) {
             statusEl.textContent = "No dishes on the menu tonight.";
             return;

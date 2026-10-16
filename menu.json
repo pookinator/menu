@@ -1,104 +1,12 @@
 {
-  "templates": [
-    {
-      "template": "Smoker",
-      "category": "American",
-      "prepTime": "1 days",
-      "tags": [
-        "Classic",
-        "Grill"
-      ],
-      "customizations": [
-        {
-          "name": "Smoke",
-          "type": "single",
-          "options": [
-            "Hickory",
-            "Apple",
-            "Mesquite"
-          ]
-        },
-        {
-          "name": "Sauce",
-          "type": "multi",
-          "options": [
-            "BBQ",
-            "Mango Habanero"
-          ]
-        }
-      ]
-    },
-    {
-      "template": "Grill",
-      "category": "American",
-      "prepTime": "30-60 minutes",
-      "tags": [
-        "Grill",
-        "Weeknight"
-      ],
-      "customizations": [
-        {
-          "name": "Seasoning",
-          "type": "single",
-          "options": [
-            "Citrus-herb",
-            "Smoky",
-            "Spicy"
-          ]
-        },
-        {
-          "name": "Vegetables",
-          "type": "multi",
-          "options": [
-            "Corn",
-            "Peppers",
-            "Onions",
-            "Zucchini"
-          ]
-        }
-      ]
-    },
-    {
-      "template": "Vegan",
-      "category": "Plant-Based",
-      "prepTime": "30-60 minutes",
-      "tags": [
-        "Vegan",
-        "Meal Prep"
-      ],
-      "customizations": [
-        {
-          "name": "Protein",
-          "type": "single",
-          "options": [
-            "Chickpeas",
-            "Lentils",
-            "Tofu",
-            "Jackfruit",
-            "White Beans"
-          ]
-        },
-        {
-          "name": "Flavor",
-          "type": "single",
-          "options": [
-            "Smoky",
-            "Mexican",
-            "Mediterranean",
-            "Thai-inspired"
-          ]
-        }
-      ]
-    }
-  ],
   "items": [
     {
       "id": "chickpea-masala",
       "name": "Chickpea Masala",
       "category": "Indian",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Chana_masala.jpg/330px-Chana_masala.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
-      "description": "Chickpeas simmered in a tomato-forward sauce with warming spices.",
       "prepTime": "40 minutes",
+      "image": "images/chickpea-masala.png",
+      "description": "Chickpeas simmered in a tomato-forward sauce with warming spices.",
       "tags": [
         "Vegan",
         "Meal Prep",
@@ -131,9 +39,9 @@
       "id": "home-made-pizza",
       "name": "Home Made Pizza",
       "category": "Italian",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/330px-Pizza-3007395.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail",
-      "description": "Long-fermented thin-crust pizza dough with a choice of sauce and toppings.",
       "prepTime": "2-3 days",
+      "image": "images/home-made-pizza.png",
+      "description": "Long-fermented thin-crust pizza dough with a choice of sauce and toppings.",
       "tags": [
         "Classic",
         "Italian",
@@ -165,13 +73,12 @@
       ]
     },
     {
-      "template": "Smoker",
       "id": "pork-back-ribs",
       "name": "Pork Back Ribs",
       "category": "American",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Balinese_Roasted_Pork_Ribs_-_Iga_Babi_Panggang_Bali.JPG/330px-Balinese_Roasted_Pork_Ribs_-_Iga_Babi_Panggang_Bali.JPG?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
-      "description": "Smoked pork back ribs; aim for tender meat while keeping the ribs juicy.",
       "prepTime": "5-7 hours",
+      "image": "images/pork-back-ribs.png",
+      "description": "Smoked pork back ribs; aim for tender meat while keeping the ribs juicy.",
       "tags": [
         "Smoker",
         "BBQ",
@@ -200,13 +107,12 @@
       ]
     },
     {
-      "template": "Smoker",
       "id": "pork-shoulder",
       "name": "Pork Shoulder",
       "category": "American",
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Pork_Shoulders.jpg/330px-Pork_Shoulders.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail",
-      "description": "Slow-smoked pork shoulder for pulled pork, sandwiches, or tacos.",
       "prepTime": "8-12 hours",
+      "image": "images/pork-shoulder.png",
+      "description": "Slow-smoked pork shoulder for pulled pork, sandwiches, or tacos.",
       "tags": [
         "Smoker",
         "BBQ",
@@ -238,8 +144,9 @@
       "id": "mediterranean-chicken-pasta-salad",
       "name": "Mediterranean Grilled Chicken Pasta Salad",
       "category": "Mediterranean",
-      "description": "Vegetable pasta with grilled lemon-oregano chicken thighs, bacon, cucumber, tomatoes, roasted red pepper, red onion, Kalamata olives, pepperoncini, parsley, pine nuts, and lemon-oregano vinaigrette.",
       "prepTime": "45-60 minutes",
+      "image": "images/mediterranean-chicken-pasta-salad.png",
+      "description": "Vegetable pasta with grilled lemon-oregano chicken thighs, bacon, cucumber, tomatoes, roasted red pepper, red onion, Kalamata olives, pepperoncini, parsley, pine nuts, and lemon-oregano vinaigrette.",
       "tags": [
         "Grill",
         "Pasta",
@@ -276,8 +183,9 @@
       "id": "miso-grilled-cabbage",
       "name": "Miso Butter Grilled Cabbage",
       "category": "Japanese-Inspired",
-      "description": "Grilled cabbage wedges glazed with white miso, garlic, rice vinegar, sesame oil, and a little honey or maple; use a dairy-free butter substitute if needed.",
       "prepTime": "25-35 minutes",
+      "image": "images/miso-grilled-cabbage.png",
+      "description": "Grilled cabbage wedges glazed with white miso, garlic, rice vinegar, sesame oil, and a little honey or maple; use a dairy-free butter substitute if needed.",
       "tags": [
         "Grill",
         "Vegetables",
@@ -309,8 +217,9 @@
       "id": "chimichurri",
       "name": "Quick Chimichurri",
       "category": "Argentinian",
-      "description": "A quick, bright herb sauce with parsley, garlic, oil, vinegar, and chili; serve with grilled meat or vegetables.",
       "prepTime": "10 minutes",
+      "image": "images/chimichurri.png",
+      "description": "A quick, bright herb sauce with parsley, garlic, oil, vinegar, and chili; serve with grilled meat or vegetables.",
       "tags": [
         "Sauce",
         "Grill",
@@ -342,8 +251,9 @@
       "id": "grilled-pork-loin-chops",
       "name": "Grilled Pork Loin Chops",
       "category": "American",
-      "description": "Thick pork loin chops, optionally overnight-brined with garlic and herbs, seared over high heat and finished over indirect heat.",
       "prepTime": "8-12 hours with brine; 20-30 minutes grilling",
+      "image": "images/grilled-pork-loin-chops.png",
+      "description": "Thick pork loin chops, optionally overnight-brined with garlic and herbs, seared over high heat and finished over indirect heat.",
       "tags": [
         "Grill",
         "Dinner",
@@ -375,8 +285,9 @@
       "id": "smoky-beef-cottage-pie",
       "name": "Smoky Shredded-Beef Cottage Pie",
       "category": "British-Inspired",
-      "description": "Grilled or seared chuck roast braised until shreddable with mirepoix and gravy, topped with rich mashed potatoes.",
       "prepTime": "4-5 hours",
+      "image": "images/smoky-beef-cottage-pie.png",
+      "description": "Grilled or seared chuck roast braised until shreddable with mirepoix and gravy, topped with rich mashed potatoes.",
       "tags": [
         "Comfort Food",
         "Smoky",
@@ -409,8 +320,9 @@
       "id": "homemade-crunchwrap",
       "name": "Homemade Crunchwrap",
       "category": "Mexican / Tex-Mex",
-      "description": "Crispy layered tortilla with seasoned beef, tostada crunch, lettuce, tomato, and customizable fillings.",
       "prepTime": "30-40 minutes",
+      "image": "images/homemade-crunchwrap.png",
+      "description": "Crispy layered tortilla with seasoned beef, tostada crunch, lettuce, tomato, and customizable fillings.",
       "tags": [
         "Tex-Mex",
         "Skillet",
@@ -453,8 +365,9 @@
       "id": "adobada-tacos",
       "name": "Adobada Tacos",
       "category": "Mexican",
-      "description": "Tacos with pork marinated in a chile-forward adobo, grilled or seared and served with salsa and fresh toppings.",
       "prepTime": "4-12 hours marinating; 30 minutes cooking",
+      "image": "images/adobada-tacos.png",
+      "description": "Tacos with pork marinated in a chile-forward adobo, grilled or seared and served with salsa and fresh toppings.",
       "tags": [
         "Mexican",
         "Tacos",
@@ -488,8 +401,9 @@
       "id": "chile-rellenos",
       "name": "Chile Rellenos (No-Egg Style)",
       "category": "Mexican",
-      "description": "Stuffed chiles prepared without an egg batter, inspired by the style requested for a family-style Mexican meal.",
       "prepTime": "45-60 minutes",
+      "image": "images/chile-rellenos.png",
+      "description": "Stuffed chiles prepared without an egg batter, inspired by the style requested for a family-style Mexican meal.",
       "tags": [
         "Mexican",
         "Vegetarian",
@@ -521,8 +435,9 @@
       "id": "mexican-shrimp-salad",
       "name": "Mexican Shrimp Salad",
       "category": "Mexican",
-      "description": "Fresh shrimp salad with bright citrus, crunchy vegetables, and Mexican-inspired seasoning.",
       "prepTime": "20-30 minutes",
+      "image": "images/mexican-shrimp-salad.png",
+      "description": "Fresh shrimp salad with bright citrus, crunchy vegetables, and Mexican-inspired seasoning.",
       "tags": [
         "Seafood",
         "Fresh",
@@ -557,8 +472,9 @@
       "id": "arayes",
       "name": "Arayes",
       "category": "Levantine",
-      "description": "Seasoned ground meat pressed into pita and grilled or pan-seared until crisp outside and juicy inside.",
       "prepTime": "25-35 minutes",
+      "image": "images/arayes.png",
+      "description": "Seasoned ground meat pressed into pita and grilled or pan-seared until crisp outside and juicy inside.",
       "tags": [
         "Middle Eastern",
         "Grill",
@@ -588,35 +504,12 @@
       ]
     },
     {
-      "id": "tahini-sauce",
-      "name": "Tahini Sauce",
-      "category": "Levantine",
-      "description": "Creamy sesame sauce brightened with lemon and garlic, ideal for arayes, grilled vegetables, or bowls.",
-      "prepTime": "5-10 minutes",
-      "tags": [
-        "Sauce",
-        "Vegan",
-        "Middle Eastern"
-      ],
-      "active": true,
-      "customizations": [
-        {
-          "name": "Flavor",
-          "type": "single",
-          "options": [
-            "Classic Lemon-Garlic",
-            "Herby",
-            "Spicy"
-          ]
-        }
-      ]
-    },
-    {
       "id": "grilled-corn-salad",
       "name": "Grilled Corn Salad",
       "category": "American / Mexican-Inspired",
-      "description": "Charred corn tossed with fresh herbs, lime, and crunchy vegetables; toppings can be customized.",
       "prepTime": "20-30 minutes",
+      "image": "images/grilled-corn-salad.png",
+      "description": "Charred corn tossed with fresh herbs, lime, and crunchy vegetables; toppings can be customized.",
       "tags": [
         "Grill",
         "Summer",
@@ -650,8 +543,9 @@
       "id": "cauliflower-rice",
       "name": "Roasted Cauliflower Rice",
       "category": "Vegetarian",
-      "description": "Cauliflower rice roasted until lightly browned for a flavorful, vegetable-forward side or bowl base.",
       "prepTime": "25-35 minutes",
+      "image": "images/cauliflower-rice.png",
+      "description": "Cauliflower rice roasted until lightly browned for a flavorful, vegetable-forward side or bowl base.",
       "tags": [
         "Vegetables",
         "Meal Prep",
@@ -685,8 +579,9 @@
       "id": "cauliflower-wings",
       "name": "Cauliflower Wings",
       "category": "American",
-      "description": "Roasted or grilled cauliflower florets with a crisp coating and bold sauce.",
       "prepTime": "35-45 minutes",
+      "image": "images/cauliflower-wings.png",
+      "description": "Roasted or grilled cauliflower florets with a crisp coating and bold sauce.",
       "tags": [
         "Vegetarian",
         "Game Day",
@@ -716,44 +611,12 @@
       ]
     },
     {
-      "id": "red-miso-chicken-tenders",
-      "name": "Red Miso Chicken Tenders",
-      "category": "Japanese-Inspired",
-      "description": "Chicken tenders marinated or glazed with red miso and savory aromatics, then roasted or grilled.",
-      "prepTime": "30-45 minutes",
-      "tags": [
-        "Chicken",
-        "Japanese-Inspired",
-        "Weeknight"
-      ],
-      "active": true,
-      "customizations": [
-        {
-          "name": "Cooking Method",
-          "type": "single",
-          "options": [
-            "Grilled",
-            "Oven-Roasted",
-            "Air-Fried"
-          ]
-        },
-        {
-          "name": "Heat",
-          "type": "single",
-          "options": [
-            "Mild",
-            "Chili-Garlic",
-            "Hot"
-          ]
-        }
-      ]
-    },
-    {
       "id": "sushi-bake",
       "name": "Sushi Bake",
       "category": "Japanese-Inspired",
-      "description": "A baked, casserole-style sushi-inspired dish served in scoops with seaweed sheets and fresh toppings.",
       "prepTime": "45-60 minutes",
+      "image": "images/sushi-bake.png",
+      "description": "A baked, casserole-style sushi-inspired dish served in scoops with seaweed sheets and fresh toppings.",
       "tags": [
         "Seafood",
         "Rice",
@@ -785,52 +648,12 @@
       ]
     },
     {
-      "id": "smoked-vegetable-feast",
-      "name": "Smoked & Grilled Vegetable Spread",
-      "category": "Plant-Based",
-      "description": "A mix-and-match spread of smoked or grilled vegetables, including cauliflower, portobello, cabbage, eggplant, tomatoes, poblanos, carrots, beets, and sweet potatoes.",
-      "prepTime": "45-90 minutes",
-      "tags": [
-        "Vegan",
-        "Smoker",
-        "Grill",
-        "Side Dish"
-      ],
-      "active": true,
-      "customizations": [
-        {
-          "name": "Vegetables",
-          "type": "multi",
-          "options": [
-            "Cauliflower",
-            "Portobello",
-            "Cabbage",
-            "Eggplant",
-            "Tomatoes",
-            "Poblanos",
-            "Carrots",
-            "Beets",
-            "Sweet Potatoes",
-            "Chickpeas"
-          ]
-        },
-        {
-          "name": "Method",
-          "type": "single",
-          "options": [
-            "Smoked",
-            "Grilled",
-            "Mixed"
-          ]
-        }
-      ]
-    },
-    {
       "id": "lemon-bars",
       "name": "Lemon Bars",
       "category": "American",
-      "description": "Bright lemon dessert with a tender base and tangy citrus topping; recipe details can be adapted to dietary needs.",
       "prepTime": "1-2 hours plus cooling",
+      "image": "images/lemon-bars.png",
+      "description": "Bright lemon dessert with a tender base and tangy citrus topping; recipe details can be adapted to dietary needs.",
       "tags": [
         "Dessert",
         "Citrus",
@@ -855,6 +678,19 @@
           ]
         }
       ]
+    },
+    {
+      "id": "steak",
+      "name": "Steak",
+      "category": "Classic American",
+      "prepTime": "2 hours",
+      "image": "images/steak.png",
+      "description": "Classic steak on the grill",
+      "tags": [
+        "grilled",
+        "carnivore"
+      ],
+      "active": true
     }
   ]
 }
