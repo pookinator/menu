@@ -13,6 +13,7 @@
         --card: #fffdf9;
         --line: #e6dcd0;
         --accent: #8b3a2a;
+        --ribbon-h: 3.25rem;
       }
 
       * {
@@ -27,10 +28,19 @@
         line-height: 1.4;
       }
 
+      body.submitted main,
+      body.submitted .order-ribbon {
+        display: none;
+      }
+
+      body.submitted .thank-you {
+        display: block;
+      }
+
       main {
         max-width: 40rem;
         margin: 0 auto;
-        padding: 1.25rem 0.85rem 2.5rem;
+        padding: 1.25rem 0.85rem calc(2.5rem + var(--ribbon-h));
       }
 
       header {
@@ -111,6 +121,10 @@
 
       article.expanded {
         border-color: #d4c4b4;
+      }
+
+      article.in-cart {
+        box-shadow: 0 0 0 1px var(--accent);
       }
 
       .card-toggle {
@@ -206,17 +220,254 @@
         font-weight: 600;
       }
 
-      .choice {
-        margin: 0 0 0.3rem;
+      .choice-field {
+        margin: 0 0 0.45rem;
         font-size: 0.75rem;
       }
 
-      .choice:last-child {
-        margin-bottom: 0;
+      .choice-field legend {
+        font-weight: 600;
+        padding: 0;
+        margin-bottom: 0.2rem;
       }
 
-      .choice strong {
+      .choice-option {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin: 0.15rem 0;
+        font-family: system-ui, sans-serif;
+      }
+
+      .choice-option input {
+        margin: 0;
+      }
+
+      .add-to-cart {
+        width: 100%;
+        margin-top: 0.55rem;
+        padding: 0.45rem 0.65rem;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        background: var(--accent);
+        color: #fffdf9;
+        font: 600 0.8rem system-ui, sans-serif;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+
+      .add-to-cart:focus-visible {
+        outline: 2px solid var(--ink);
+        outline-offset: 2px;
+      }
+
+      .add-feedback {
+        margin: 0.35rem 0 0;
+        font-family: system-ui, sans-serif;
+        font-size: 0.72rem;
+        color: var(--accent);
+        min-height: 1rem;
+      }
+
+      .order-ribbon {
+        display: none;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 20;
+        border-top: 1px solid var(--line);
+        background: rgba(255, 253, 249, 0.96);
+        backdrop-filter: blur(6px);
+        padding: 0.55rem 0.85rem;
+      }
+
+      .order-ribbon.visible {
+        display: block;
+      }
+
+      .order-ribbon-inner {
+        max-width: 40rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .cart-summary {
+        font-family: system-ui, sans-serif;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .finalize-btn {
+        padding: 0.5rem 1rem;
+        border: 1px solid var(--accent);
+        border-radius: 8px;
+        background: var(--accent);
+        color: #fffdf9;
+        font: 600 0.85rem system-ui, sans-serif;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      .finalize-btn:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .modal-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        background: rgba(44, 36, 27, 0.35);
+        padding: 1rem;
+        overflow-y: auto;
+      }
+
+      .modal-backdrop.open {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      .modal {
+        width: min(100%, 26rem);
+        margin: auto;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem 1.1rem 1.15rem;
+      }
+
+      .modal h2 {
+        margin: 0 0 0.75rem;
+        font-size: 1.15rem;
+        font-weight: 400;
+      }
+
+      .cart-review {
+        margin: 0 0 0.85rem;
+        padding: 0;
+        list-style: none;
+        max-height: 14rem;
+        overflow-y: auto;
+      }
+
+      .cart-review li {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding: 0.45rem 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.85rem;
+      }
+
+      .cart-review li:last-child {
+        border-bottom: 0;
+      }
+
+      .cart-item-meta {
+        margin: 0.15rem 0 0;
+        font-family: system-ui, sans-serif;
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+
+      .remove-cart-item {
+        flex-shrink: 0;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font-family: system-ui, sans-serif;
+        font-size: 0.72rem;
+        text-decoration: underline;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .note-label {
+        display: block;
+        margin-bottom: 0.35rem;
+        font-family: system-ui, sans-serif;
+        font-size: 0.8rem;
         font-weight: 600;
+      }
+
+      #additional-note {
+        width: 100%;
+        min-height: 4.5rem;
+        padding: 0.5rem 0.6rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--ink);
+        font: 0.9rem system-ui, sans-serif;
+        resize: vertical;
+      }
+
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-top: 0.85rem;
+      }
+
+      .modal-actions button {
+        padding: 0.45rem 0.85rem;
+        border-radius: 8px;
+        font: 600 0.8rem system-ui, sans-serif;
+        cursor: pointer;
+      }
+
+      .modal-cancel {
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--ink);
+      }
+
+      .modal-submit {
+        border: 1px solid var(--accent);
+        background: var(--accent);
+        color: #fffdf9;
+      }
+
+      .modal-submit:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .modal-error {
+        margin: 0.5rem 0 0;
+        font-family: system-ui, sans-serif;
+        font-size: 0.78rem;
+        color: #9a2c2c;
+      }
+
+      .thank-you {
+        display: none;
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 3rem 1.25rem;
+        text-align: center;
+      }
+
+      .thank-you h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+
+      .thank-you p {
+        margin: 0;
+        color: var(--muted);
+        font-style: italic;
       }
 
       @media (min-width: 540px) {
@@ -225,11 +476,15 @@
         }
 
         main {
-          padding: 1.75rem 1.25rem 3rem;
+          padding: 1.75rem 1.25rem calc(3rem + var(--ribbon-h));
         }
 
         article img {
           height: 5.5rem;
+        }
+
+        .order-ribbon {
+          padding: 0.55rem 1.25rem;
         }
       }
     </style>
@@ -252,11 +507,69 @@
       <p id="status" class="status">Loading menu…</p>
       <section id="menu" class="menu" hidden></section>
     </main>
+
+    <div class="thank-you" id="thank-you" role="status">
+      <h2>Thank you for your order!</h2>
+      <p>Your menu picks have been sent.</p>
+    </div>
+
+    <div class="order-ribbon" id="order-ribbon" aria-live="polite">
+      <div class="order-ribbon-inner">
+        <p class="cart-summary" id="cart-summary">0 items in cart</p>
+        <button type="button" class="finalize-btn" id="finalize-btn" disabled>
+          Finalize
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="modal-backdrop"
+      id="checkout-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkout-title"
+      hidden
+    >
+      <div class="modal">
+        <h2 id="checkout-title">Review your order</h2>
+        <ul class="cart-review" id="cart-review"></ul>
+        <label class="note-label" for="additional-note">Additional note</label>
+        <textarea
+          id="additional-note"
+          placeholder="Allergies, timing, or anything else…"
+        ></textarea>
+        <p class="modal-error" id="submit-error" hidden></p>
+        <div class="modal-actions">
+          <button type="button" class="modal-cancel" id="checkout-cancel">
+            Back
+          </button>
+          <button type="button" class="modal-submit" id="checkout-submit">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+
     <script>
+      const FORMSPREE_ENDPOINT = "https://formspree.io/f/xbgdqngq";
+
       const statusEl = document.getElementById("status");
       const menuEl = document.getElementById("menu");
       const controlsEl = document.getElementById("controls");
       const searchEl = document.getElementById("search");
+      const orderRibbonEl = document.getElementById("order-ribbon");
+      const cartSummaryEl = document.getElementById("cart-summary");
+      const finalizeBtn = document.getElementById("finalize-btn");
+      const checkoutModalEl = document.getElementById("checkout-modal");
+      const cartReviewEl = document.getElementById("cart-review");
+      const additionalNoteEl = document.getElementById("additional-note");
+      const submitErrorEl = document.getElementById("submit-error");
+      const checkoutCancelBtn = document.getElementById("checkout-cancel");
+      const checkoutSubmitBtn = document.getElementById("checkout-submit");
+      const thankYouEl = document.getElementById("thank-you");
+
+      const menuItemsById = new Map();
+      const cart = [];
 
       function escapeHtml(value) {
         return String(value)
@@ -266,6 +579,10 @@
           .replaceAll('"', "&quot;");
       }
 
+      function escapeAttr(value) {
+        return escapeHtml(value).replaceAll("'", "&#39;");
+      }
+
       function itemsFrom(menu) {
         if (Array.isArray(menu)) {
           return menu;
@@ -273,21 +590,52 @@
         return menu.items || [];
       }
 
-      function renderCustomizations(customizations) {
-        if (!Array.isArray(customizations) || customizations.length === 0) {
+      function choiceFieldName(itemId, choiceName) {
+        return `choice-${itemId}-${choiceName}`.replace(/\s+/g, "-");
+      }
+
+      function renderCustomizationFields(item) {
+        const customizations = item.customizations || [];
+        if (customizations.length === 0) {
           return "";
         }
 
-        const choices = customizations
+        const fields = customizations
           .map((choice) => {
-            const label = escapeHtml(choice.name);
-            const type = choice.type === "multi" ? "choose any" : "choose one";
-            const options = (choice.options || []).map(escapeHtml).join(", ");
-            return `<p class="choice"><strong>${label}</strong> (${type}): ${options}</p>`;
+            const fieldName = choiceFieldName(item.id, choice.name);
+            const legend = escapeHtml(choice.name);
+            const hint =
+              choice.type === "multi" ? " (choose any)" : " (choose one)";
+            const options = (choice.options || [])
+              .map((option, index) => {
+                const id = `${fieldName}-${index}`;
+                const inputType = choice.type === "multi" ? "checkbox" : "radio";
+                const required =
+                  choice.type === "single" && index === 0 ? "required" : "";
+                return `
+                  <label class="choice-option" for="${escapeAttr(id)}">
+                    <input
+                      id="${escapeAttr(id)}"
+                      type="${inputType}"
+                      name="${escapeAttr(fieldName)}"
+                      value="${escapeAttr(option)}"
+                      ${required}
+                    />
+                    ${escapeHtml(option)}
+                  </label>
+                `;
+              })
+              .join("");
+            return `
+              <fieldset class="choice-field">
+                <legend>${legend}${hint}</legend>
+                ${options}
+              </fieldset>
+            `;
           })
           .join("");
 
-        return `<div class="customizations"><h3>Customizations</h3>${choices}</div>`;
+        return `<div class="customizations"><h3>Customizations</h3>${fields}</div>`;
       }
 
       function renderItem(item) {
@@ -302,7 +650,7 @@
           .join(" ")
           .toLowerCase();
         return `
-          <article data-search="${escapeHtml(searchText)}">
+          <article data-item-id="${escapeAttr(item.id)}" data-search="${escapeHtml(searchText)}">
             <button class="card-toggle" type="button" aria-expanded="false">
               ${image}
               <span class="name">${escapeHtml(item.name)}</span>
@@ -314,10 +662,196 @@
                 .join(" · ")}</p>
               <p class="description">${escapeHtml(item.description || "")}</p>
               ${tags ? `<ul class="tags">${tags}</ul>` : ""}
-              ${renderCustomizations(item.customizations)}
+              ${renderCustomizationFields(item)}
+              <button type="button" class="add-to-cart">Add</button>
+              <p class="add-feedback" aria-live="polite"></p>
             </div>
           </article>
         `;
+      }
+
+      function formatSelections(selections) {
+        const parts = Object.entries(selections).map(([name, value]) => {
+          if (Array.isArray(value)) {
+            return `${name}: ${value.join(", ")}`;
+          }
+          return `${name}: ${value}`;
+        });
+        return parts.join("; ");
+      }
+
+      function readSelections(article, item) {
+        const selections = {};
+        for (const choice of item.customizations || []) {
+          const fieldName = choiceFieldName(item.id, choice.name);
+          const inputs = article.querySelectorAll(
+            `[name="${CSS.escape(fieldName)}"]`
+          );
+          if (choice.type === "multi") {
+            const picked = [...inputs]
+              .filter((input) => input.checked)
+              .map((input) => input.value);
+            if (picked.length) {
+              selections[choice.name] = picked;
+            }
+          } else {
+            const picked = [...inputs].find((input) => input.checked);
+            if (picked) {
+              selections[choice.name] = picked.value;
+            }
+          }
+        }
+        return selections;
+      }
+
+      function validateSelections(article, item) {
+        for (const choice of item.customizations || []) {
+          if (choice.type !== "single") {
+            continue;
+          }
+          const fieldName = choiceFieldName(item.id, choice.name);
+          const picked = article.querySelector(
+            `[name="${CSS.escape(fieldName)}"]:checked`
+          );
+          if (!picked) {
+            return `Choose an option for ${choice.name}.`;
+          }
+        }
+        return null;
+      }
+
+      function updateCartUi() {
+        const count = cart.length;
+        cartSummaryEl.textContent =
+          count === 1 ? "1 item in cart" : `${count} items in cart`;
+        finalizeBtn.disabled = count === 0;
+
+        for (const article of menuEl.querySelectorAll("article")) {
+          const itemId = article.dataset.itemId;
+          const inCart = cart.some((entry) => entry.id === itemId);
+          article.classList.toggle("in-cart", inCart);
+        }
+      }
+
+      function addToCart(article) {
+        const itemId = article.dataset.itemId;
+        const item = menuItemsById.get(itemId);
+        if (!item) {
+          return;
+        }
+
+        const validationError = validateSelections(article, item);
+        if (validationError) {
+          const feedback = article.querySelector(".add-feedback");
+          feedback.textContent = validationError;
+          return;
+        }
+
+        const selections = readSelections(article, item);
+        cart.push({
+          id: item.id,
+          name: item.name,
+          selections,
+        });
+
+        const feedback = article.querySelector(".add-feedback");
+        feedback.textContent = "Added to cart.";
+        updateCartUi();
+      }
+
+      function removeFromCart(index) {
+        cart.splice(index, 1);
+        updateCartUi();
+        renderCartReview();
+      }
+
+      function renderCartReview() {
+        cartReviewEl.innerHTML = cart
+          .map((entry, index) => {
+            const meta = formatSelections(entry.selections);
+            return `
+              <li>
+                <div>
+                  <strong>${escapeHtml(entry.name)}</strong>
+                  ${meta ? `<p class="cart-item-meta">${escapeHtml(meta)}</p>` : ""}
+                </div>
+                <button
+                  type="button"
+                  class="remove-cart-item"
+                  data-index="${index}"
+                >
+                  Remove
+                </button>
+              </li>
+            `;
+          })
+          .join("");
+      }
+
+      function formatOrderForEmail() {
+        return cart
+          .map((entry, index) => {
+            const meta = formatSelections(entry.selections);
+            const line = `${index + 1}. ${entry.name}`;
+            return meta ? `${line}\n   ${meta}` : line;
+          })
+          .join("\n");
+      }
+
+      function openCheckout() {
+        if (cart.length === 0) {
+          return;
+        }
+        renderCartReview();
+        submitErrorEl.hidden = true;
+        submitErrorEl.textContent = "";
+        checkoutModalEl.hidden = false;
+        checkoutModalEl.classList.add("open");
+        additionalNoteEl.focus();
+      }
+
+      function closeCheckout() {
+        checkoutModalEl.classList.remove("open");
+        checkoutModalEl.hidden = true;
+      }
+
+      async function submitOrder() {
+        submitErrorEl.hidden = true;
+        submitErrorEl.textContent = "";
+        checkoutSubmitBtn.disabled = true;
+
+        const payload = {
+          _subject: "Pookinator Menu Order",
+          order: formatOrderForEmail(),
+          additional_note: additionalNoteEl.value.trim(),
+        };
+
+        try {
+          const response = await fetch(FORMSPREE_ENDPOINT, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+          if (!response.ok) {
+            const data = await response.json().catch(() => ({}));
+            const message =
+              data.error || "Something went wrong. Please try again.";
+            throw new Error(message);
+          }
+          cart.length = 0;
+          updateCartUi();
+          closeCheckout();
+          document.body.classList.add("submitted");
+          thankYouEl.scrollIntoView({ behavior: "smooth", block: "center" });
+        } catch (error) {
+          submitErrorEl.hidden = false;
+          submitErrorEl.textContent = error.message || "Could not submit order.";
+        } finally {
+          checkoutSubmitBtn.disabled = false;
+        }
       }
 
       function itemMatches(article) {
@@ -359,10 +893,13 @@
             return;
           }
 
+          active.forEach((item) => menuItemsById.set(item.id, item));
           menuEl.innerHTML = active.map(renderItem).join("");
           menuEl.hidden = false;
           statusEl.hidden = true;
           controlsEl.classList.add("visible");
+          orderRibbonEl.classList.add("visible");
+          updateCartUi();
         })
         .catch(() => {
           statusEl.textContent =
@@ -372,13 +909,46 @@
       searchEl.addEventListener("input", applyFilters);
 
       menuEl.addEventListener("click", (event) => {
-        const article = event.target.closest("article");
-        if (!article) {
+        const addButton = event.target.closest(".add-to-cart");
+        if (addButton) {
+          const article = addButton.closest("article");
+          if (article) {
+            addToCart(article);
+          }
           return;
         }
-        const toggle = article.querySelector(".card-toggle");
+
+        const toggle = event.target.closest(".card-toggle");
+        if (!toggle) {
+          return;
+        }
+        const article = toggle.closest("article");
         const expanded = article.classList.toggle("expanded");
         toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+      });
+
+      finalizeBtn.addEventListener("click", openCheckout);
+      checkoutCancelBtn.addEventListener("click", closeCheckout);
+      checkoutSubmitBtn.addEventListener("click", submitOrder);
+
+      cartReviewEl.addEventListener("click", (event) => {
+        const button = event.target.closest(".remove-cart-item");
+        if (!button) {
+          return;
+        }
+        removeFromCart(Number(button.dataset.index));
+      });
+
+      checkoutModalEl.addEventListener("click", (event) => {
+        if (event.target === checkoutModalEl) {
+          closeCheckout();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && checkoutModalEl.classList.contains("open")) {
+          closeCheckout();
+        }
       });
     </script>
   </body>
