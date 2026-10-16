@@ -1,0 +1,26 @@
+[
+    {
+      "id": "chickpea-masala",
+      "name": "Chickpea Masala",
+      "category": "Indian",
+      "image": "https://example.com/masala.jpg",
+      "description": "Chickpeas in a spiced tomato sauce.",
+      "prepTime": "2 hours",
+      "tags": ["vegan", "meal prep"],
+      "active": true
+    },
+    {
+        "id": "home-made-pizza",
+        "name": "Home Made Pizza",
+        "category": "Italian",
+        "image": "https://example.com/masala.jpg",
+        "description": "Classic thin-crust pizza with your choice of toppings.",
+        "prepTime": "2-3 days",
+        "tags": ["classic"],
+        "active": true,
+        "customizations": [
+            {"name": "toppings", "type": "multi", "options":["pepperoni", "olives"]},
+            {"name": "cheese", "type": "single", "options":["mozzarella", "cheddar"]}
+        ]
+      }
+  ]
